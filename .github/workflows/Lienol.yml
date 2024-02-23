@@ -89,7 +89,7 @@ jobs:
       env:
         CONFIG_FILE: '${{matrix.target}}.config'
       run: |
-        [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
+        [ -e $CONFIG_FILE ] && mv Lienol.config openwrt/.config
         chmod +x ./customize.sh && ./customize.sh
         cd openwrt
         rm -rf feeds/smpackage/{base-files,dnsmasq,firewall*,fullconenat,libnftnl,nftables,ppp,opkg,ucl,upx,vsftpd-alt,miniupnpd-iptables,wireless-regdb}
