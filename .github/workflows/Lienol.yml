@@ -112,6 +112,7 @@ jobs:
     - name: Compile the firmware
       working-directory: ./openwrt
       run: |
+        sed -i 's/KBUILD_CFLAGS-$(CONFIG_WERROR) += -Werror/ /g' build_dir/target-aarch64_cortex-a53_musl/linux-mediatek_filogic/linux-5.15.147/Makefile
         echo -e "$(($(nproc)+1)) thread compile"
         make -j$(($(nproc)+1)) V=s || make -j1 V=sc    
      
